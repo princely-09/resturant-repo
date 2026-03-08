@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwiftDrop — Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="prince.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Bihari<span class="logo-dot">Tadka</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Restaurants</a></li>
+      <li><a href="#">Track Order</a></li>
+      <li><a href="#">Offers</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="btn-ghost">Log in</button>
+      <button class="btn-primary">Sign up</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="badge-dot"></span><span>Delivering in 20+ cities</span></div>
+      <h1 class="hero-title">Food at your<br><em>doorstep,</em><br>in minutes</h1>
+      <p class="hero-sub">Order from hundreds of restaurants near you. Real-time tracking, zero hassle, blazing fast.</p>
+      <div class="hero-actions">
+        <button class="btn-large" onclick="scrollToMenu()">🍔 Order Now</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">12<span>K+</span></div><div class="stat-label">Restaurants</div></div>
+        <div><div class="stat-val">22<span>min</span></div><div class="stat-label">Avg Delivery</div></div>
+        <div><div class="stat-val">98<span>%</span></div><div class="stat-label">Satisfaction</div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="track-card">
+        <div class="track-header">
+          <div><div class="track-title">📦 Current Order</div><div class="track-id">#SD-28419</div></div>
+          <div class="status-badge"><span class="status-dot"></span>On the way</div>
+        </div>
+        <div class="map-area">
+          <div class="map-grid"></div>
+          <div class="map-route"></div>
+          <div class="map-rider">🛵</div>
+        </div>
+        <div class="track-steps">
+          <div class="step"><div class="step-icon done">✓</div><div class="step-info"><div class="step-name">Order Confirmed</div><div class="step-time">2:14 PM</div></div></div>
+          <div class="step"><div class="step-icon done">✓</div><div class="step-info"><div class="step-name">Preparing your food</div><div class="step-time">2:19 PM</div></div></div>
+          <div class="step"><div class="step-icon active">🛵</div><div class="step-info"><div class="step-name">Out for delivery</div><div class="step-time">Now</div></div></div>
+          <div class="step"><div class="step-icon pending">📍</div><div class="step-info"><div class="step-name">Delivered</div><div class="step-time">~2:38 PM</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="search-section">
+    <div class="search-card">
+      <div class="search-label">Track your order</div>
+      <div class="search-row">
+        <input class="search-input" id="trackInput" type="text" placeholder="Enter order ID e.g. #SD-28419">
+        <button class="search-btn" onclick="trackOrder()">Track →</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="menu">
+    <div class="section-header"><div class="section-title">Browse Categories</div><div class="section-link">See all →</div></div>
+    <div class="categories-grid" id="catGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-header"><div class="section-title">Popular Near You</div><div class="section-link">View all</div></div>
+    <div class="restaurants-grid" id="restoGrid"></div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Bihari<span class="logo-dot">Tadka</span></div>
+    <div class="footer-copy">© 2025 BiahriTadka. All rights reserved.</div>
+  </footer>
+
+  <button class="cart-fab" onclick="toggleCart()">🛒<span class="cart-count" id="cartCount">0</span></button>
+
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-head">
+      <div class="cart-head-title">Your Cart</div>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty"><div class="cart-empty-icon">🛒</div><div>Your cart is empty</div></div>
+    </div>
+    <div class="cart-foot" id="cartFoot" style="display:none">
+      <div class="cart-total-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+      <div class="cart-total-row"><span>Delivery fee</span><span>$1.99</span></div>
+      <div class="cart-total-row grand"><span>Total</span><span id="grandTotal">$0.00</span></div>
+      <button class="checkout-btn" onclick="checkout()">Place Order →</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"><span class="toast-icon">✓</span><span id="toastMsg">Added to cart!</span></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
